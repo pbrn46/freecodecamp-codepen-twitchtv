@@ -1,0 +1,11 @@
+div.card.online .card-header{
+  background-color: LightGreen;
+}
+
+div.card.offline .card-header{
+  background-color: LightGray;
+}
+
+div.card {
+  margin-bottom: 20px;
+}

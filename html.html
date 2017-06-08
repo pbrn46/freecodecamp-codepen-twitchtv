@@ -1,0 +1,39 @@
+<div class="container" ng-app="twitchApp">
+  <div class="jumbotron">
+    <h1>FreeCodeCamp TwitchTV Challenge</h1>
+    <p>Written by Boris Wong 2017-06-07</p>
+  </div>
+  <div ng-controller="twitchList">
+    <div class="button-group">
+      <label for="filter1" class="btn btn-primary">
+        <input type="radio" id="filter1" ng-model="listFilter" value="all" autocomplete="off">All
+      </label>
+      <label for="filter2" class="btn btn-primary">
+        <input type="radio" id="filter2" ng-model="listFilter" value="online" autocomplete="off">Online
+      </label>
+      <label for="filter3" class="btn btn-primary">
+        <input type="radio" id="filter3" ng-model="listFilter" value="offline" autocomplete="off">Offline
+      </label>
+    </div>
+    <div class="card" ng-repeat="t in tList | orderBy:['display-name','-online']"
+      ng-class="(t.online) ? 'online' : 'offline'"
+      ng-show="((listFilter == 'online' && t.online) || (listFilter == 'offline' && !t.online) || (listFilter == 'all'))"
+    >
+      <div class="card-header">
+        <img class="img-thumbnail float-left" style="width: 100px; height: 100px;" ng-src="{{t.logo}}">
+        <div>
+          [{{t.channel_name}}] {{t.display_name}}<br>
+          Game: {{t.game}}<br>
+          <span class="status">{{(t.online) ? 'Online' : 'Offline'}}</span>
+        </div>
+      </div>
+      <div class="card-block" ng-show="!t.error">
+        <p>{{t.status}}</p>
+        <a class="btn btn-primary" ng-href="{{t.url}}" target="_blank">View Stream</a>
+      </div>
+      <div class="card-block" ng-show="t.error">
+        <p>Error -- Channel does not exist</p>
+      </div>
+    </div>
+  </div>
+</div>
