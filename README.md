@@ -1,7 +1,7 @@
 # FreeCodeCamp CodePen TwitchTV Challenge
 By Boris Wong, 2017-06-07
 
-This project was written to complete the FreeCodeCamp.com Pomodor Clock challenge.
+This project was written to complete a FreeCodeCamp.com challenge.
 
 You can view the pen at https://codepen.io/PBrn46/full/BZodJb/
 
